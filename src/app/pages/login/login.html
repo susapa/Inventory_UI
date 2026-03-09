@@ -1,0 +1,51 @@
+<div class="login-container container-fluid p-0 d-flex overflow-hidden justify-content-center">
+    <div class="login-card p-4 p-md-5 d-flex flex-column justify-content-center bg-white shadow-lg">
+        <div class="login-header mb-4 text-center text-lg-start">
+            <div class="logo display-4 mb-3">📦</div>
+            <h1 class="fw-bold mb-2 fs-2 fs-md-1">Welcome Back</h1>
+            <p class="text-muted small">Log in to manage your inventory</p>
+        </div>
+
+        <form (submit)="onLogin()" class="login-form">
+            <div class="mb-4">
+                <p-floatLabel>
+                    <input pInputText id="username" class="w-100 p-3 rounded-3" autocomplete="off" />
+                    <label for="username">Username</label>
+                </p-floatLabel>
+            </div>
+
+            <div class="mb-4">
+                <p-floatLabel>
+                    <p-password id="password" [feedback]="false" [toggleMask]="true" styleClass="w-100"
+                        inputStyleClass="w-100 p-3 rounded-3" />
+                    <label for="password">Password</label>
+                </p-floatLabel>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4 small">
+                <div class="d-flex align-items-center gap-2">
+                    <p-checkbox binary="true" id="remember" />
+                    <label for="remember" class="mb-0 cursor-pointer">Remember me</label>
+                </div>
+                <a routerLink="/forgot-password" class="text-primary fw-semibold text-decoration-none">Forgot
+                    password?</a>
+            </div>
+
+            <p-button type="submit" label="Sign In" styleClass="w-100 p-3 fw-bold rounded-3 shadow" />
+
+            <div class="text-center mt-4 text-muted small">
+                Don't have an account? <a routerLink="/signup" class="text-primary fw-bold text-decoration-none">Create
+                    one</a>
+            </div>
+        </form>
+    </div>
+
+    <div
+        class="login-illustration d-none d-lg-flex flex-fill align-items-center justify-content-center p-5 text-white position-relative">
+        <div class="illustration-content position-relative z-1 text-center text-lg-start">
+            <h2 class="display-3 fw-extrabold mb-4">Seamless Inventory Control</h2>
+            <p class="lead opacity-75">Master your stock, track your growth, and streamline your operations with
+                StockManage.</p>
+        </div>
+    </div>
+</div>

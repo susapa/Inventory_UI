@@ -1,0 +1,73 @@
+<div class="dashboard container-fluid p-0">
+    <div class="page-header mb-5">
+        <h1 class="display-5 fw-bold text-dark mb-2">Dashboard</h1>
+        <p class="lead text-muted">Welcome back! Here's what's happening with your stock today.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-12 col-sm-6 col-xl-3">
+            <p-card styleClass="stat-card shadow-sm border-0 border-start border-4 border-primary">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="stat-icon bg-primary-subtle text-primary p-3 rounded-4">
+                        <i class="pi pi-box fs-3"></i>
+                    </div>
+                    <div>
+                        <span class="text-muted small fw-medium d-block mb-1">Total Products</span>
+                        <span class="fs-3 fw-bold">1,280</span>
+                        <span class="text-success small fw-bold ms-2">↑ 12%</span>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <p-card styleClass="stat-card shadow-sm border-0 border-start border-4 border-success">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="stat-icon bg-success-subtle text-success p-3 rounded-4">
+                        <i class="pi pi-money-bill fs-3"></i>
+                    </div>
+                    <div>
+                        <span class="text-muted small fw-medium d-block mb-1">Total Value</span>
+                        <span class="fs-3 fw-bold">$42,500</span>
+                        <span class="text-success small fw-bold ms-2">↑ 8.2%</span>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <p-card styleClass="stat-card shadow-sm border-0 border-start border-4 border-warning">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="stat-icon bg-warning-subtle text-warning p-3 rounded-4">
+                        <i class="pi pi-exclamation-triangle fs-3"></i>
+                    </div>
+                    <div>
+                        <span class="text-muted small fw-medium d-block mb-1">Low Stock</span>
+                        <span class="fs-3 fw-bold">15</span>
+                        <span class="text-danger small fw-bold ms-2">↓ 3 items</span>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <p-card styleClass="stat-card shadow-sm border-0 border-start border-4 border-purple">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="stat-icon bg-purple-subtle text-purple p-3 rounded-4">
+                        <i class="pi pi-truck fs-3"></i>
+                    </div>
+                    <div>
+                        <span class="text-muted small fw-medium d-block mb-1">Pending Orders</span>
+                        <span class="fs-3 fw-bold">24</span>
+                        <span class="text-secondary small fw-bold ms-2">Stable</span>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+
+    <p-card header="Recent Activity" styleClass="shadow-sm border-0 rounded-4 overflow-hidden">
+        <div class="p-4 bg-light border-2 border-dashed rounded-4 text-center text-muted py-5">
+            <i class="pi pi-inbox fs-1 mb-3 opacity-25"></i>
+            <p class="mb-0">Your recent stock updates and orders will appear here.</p>
+            <p-button label="Refresh Data" icon="pi pi-refresh" styleClass="mt-3 p-button-outlined p-button-sm" />
+        </div>
+    </p-card>
+</div>

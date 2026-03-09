@@ -1,0 +1,68 @@
+<aside class="sidebar d-flex flex-column shadow text-white h-100">
+    <div class="logo d-flex align-items-center px-4 py-3 gap-3 border-bottom border-white border-opacity-10">
+        <div class="logo-icon fs-2">📦</div>
+        <span class="logo-text fs-4 fw-bold">Stock<span class="text-primary">Manage</span></span>
+    </div>
+
+    <nav class="nav-menu flex-grow-1 px-3 py-4 overflow-auto">
+        <p class="menu-label text-muted small fw-bold text-uppercase mb-3 px-3" style="color: white !important;">Main
+            Menu</p>
+        <ul class="nav flex-column gap-1 mb-4">
+            <li class="nav-item">
+                <a routerLink="/admin/dashboard" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-chart-bar fs-5"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/admin/inventory" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-list fs-5"></i>
+                    <span>Inventory</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/admin/orders" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-truck fs-5"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/admin/products" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-tag fs-5"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+        </ul>
+
+        <p class="menu-label text-muted small fw-bold text-uppercase mb-3 px-3" style="color: white !important;">
+            Secondary</p>
+        <ul class="nav flex-column gap-1">
+            <li class="nav-item">
+                <a routerLink="/admin/reports" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-file fs-5"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/admin/settings" routerLinkActive="active"
+                    class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white-50 transition-all">
+                    <i class="pi pi-cog fs-5"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="logout-section p-3 border-top border-white border-opacity-10">
+        <a routerLink="/login"
+            class="nav-link d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-white transition-all">
+            <i class="pi pi-sign-out fs-5"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</aside>

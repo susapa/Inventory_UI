@@ -1,0 +1,17 @@
+<div class="admin-container" [class.sidebar-hidden]="!isSidebarVisible()">
+    <app-sidebar></app-sidebar>
+
+    <!-- Mobile backdrop overlay -->
+    <div class="mobile-overlay" (click)="toggleSidebar()"></div>
+
+    <div class="main-wrapper">
+        <app-header (toggle)="toggleSidebar()"></app-header>
+
+        <main class="content-area">
+            <div class="content-wrapper">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
+        </main>
+    </div>
+</div>
