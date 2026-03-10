@@ -8,6 +8,10 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { RippleModule } from 'primeng/ripple';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +25,9 @@ import { AuthService } from '../../services/auth.service';
     InputTextModule,
     PasswordModule,
     CheckboxModule,
-    FloatLabelModule
+    FloatLabelModule,
+    ToastModule,
+    RippleModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -33,7 +39,8 @@ export class Login {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -47,11 +54,21 @@ export class Login {
       this.loading = true;
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
-          console.log('Login successful', res);
-          this.router.navigate(['/admin/dashboard']);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Login successful! Redirecting...'
+          });
+          setTimeout(() => {
+            this.router.navigate(['/admin/dashboard']);
+          }, 1000);
         },
         error: (err) => {
-          console.error('Login failed', err);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Login Failed',
+            detail: err.error?.message || 'Invalid username or password'
+          });
           this.loading = false;
         },
         complete: () => {
@@ -59,9 +76,10 @@ export class Login {
         }
       });
     } else {
-      Object.keys(this.loginForm.controls).forEach(key => {
-        const control = this.loginForm.get(key);
-        control?.markAsTouched();
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Form Invalid',
+        detail: 'Please fill in all required fields correctly.'
       });
     }
   }
