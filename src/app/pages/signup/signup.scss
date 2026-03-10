@@ -1,0 +1,58 @@
+.signup-container {
+    height: 100vh;
+}
+
+.signup-card {
+    width: 100%;
+    max-width: 550px;
+    min-height: 100vh;
+    z-index: 2;
+
+    @media (max-width: 991px) {
+        max-width: 100%;
+        box-shadow: none !important;
+    }
+
+    .logo {
+        line-height: 1;
+    }
+}
+
+.signup-illustration {
+    background-image: linear-gradient(rgba(30, 41, 59, 0.75), rgba(30, 41, 59, 0.75)), url('../../../assets/login-bg.png');
+    background-size: cover;
+    background-position: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.25) 0%, transparent 60%);
+    }
+
+    .illustration-content {
+        max-width: 600px;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+:host ::ng-deep {
+    .p-password input {
+        width: 100%;
+    }
+
+    .p-floatlabel label {
+        left: 1rem;
+    }
+
+    .p-floatlabel:has(input:focus) label,
+    .p-floatlabel:has(input.p-filled) label {
+        background-color: white;
+        padding: 0 0.5rem;
+    }
+}

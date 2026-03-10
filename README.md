@@ -57,3 +57,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## To Start Locally (Serve):
+npm run start:develop     # Serves using develop environment
+npm run start:qa          # Serves using QA environment
+npm run start:production  # Serves using production environment
+
+## To Build:
+npm run build:develop     # Builds using develop environment
+npm run build:qa          # Builds using QA environment
+npm run build:production  # Builds using production environment

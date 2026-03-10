@@ -1,0 +1,78 @@
+<div class="signup-container container-fluid p-0 d-flex overflow-hidden justify-content-center">
+    <div class="signup-card p-4 p-md-5 d-flex flex-column justify-content-center bg-white shadow-lg overflow-auto">
+        <div class="signup-header mb-4 text-center text-lg-start">
+            <div class="logo display-4 mb-3">🚀</div>
+            <h1 class="fw-bold mb-2 fs-2 fs-md-1">Create Account</h1>
+            <p class="text-muted small">Join Inventory system to manage your stock effortlessly.</p>
+        </div>
+
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="signup-form">
+            <div class="mb-3">
+                <p-floatLabel>
+                    <input pInputText id="username" formControlName="username" class="w-100 p-3 rounded-3" autocomplete="off" />
+                    <label for="username">Username</label>
+                </p-floatLabel>
+                <div *ngIf="signupForm.get('username')?.invalid && (signupForm.get('username')?.touched || signupForm.get('username')?.dirty)" class="text-danger small mt-1">
+                    Username is required (min 3 chars).
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <p-floatLabel>
+                    <input pInputText id="email" formControlName="email" type="email" class="w-100 p-3 rounded-3" autocomplete="off" />
+                    <label for="email">Email Address</label>
+                </p-floatLabel>
+                <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)" class="text-danger small mt-1">
+                    Valid email is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <p-floatLabel>
+                    <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true" styleClass="w-100"
+                        inputStyleClass="w-100 p-3 rounded-3" />
+                    <label for="password">Password</label>
+                </p-floatLabel>
+                <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)" class="text-danger small mt-1">
+                    Password is required (min 6 chars).
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <p-floatLabel>
+                    <p-password id="confirmPassword" formControlName="confirmPassword" [feedback]="false" [toggleMask]="true" styleClass="w-100"
+                        inputStyleClass="w-100 p-3 rounded-3" />
+                    <label for="confirmPassword">Confirm Password</label>
+                </p-floatLabel>
+                <div *ngIf="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.touched || signupForm.get('confirmPassword')?.dirty)" class="text-danger small mt-1">
+                    <span *ngIf="signupForm.errors?.['mismatch']">Passwords do not match.</span>
+                    <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Confirmation is required.</span>
+                </div>
+            </div>
+
+            <div class="mb-4 small">
+                <div class="d-flex align-items-center gap-2">
+                    <p-checkbox formControlName="agreeTerms" binary="true" id="terms" />
+                    <label for="terms" class="mb-0 cursor-pointer">I agree to the <a href="#" class="text-primary text-decoration-none">Terms and Conditions</a></label>
+                </div>
+                <div *ngIf="signupForm.get('agreeTerms')?.invalid && signupForm.get('agreeTerms')?.touched" class="text-danger small mt-1">
+                    You must agree to terms.
+                </div>
+            </div>
+
+            <p-button type="submit" label="Register" styleClass="w-100 p-3 fw-bold rounded-3 shadow" />
+
+            <div class="text-center mt-4 text-muted small">
+                Already have an account? <a routerLink="/login" class="text-primary fw-bold text-decoration-none">Log in</a>
+            </div>
+        </form>
+    </div>
+
+    <div
+        class="signup-illustration d-none d-lg-flex flex-fill align-items-center justify-content-center p-5 text-white position-relative">
+        <div class="illustration-content position-relative z-1 text-center text-lg-start">
+            <h2 class="display-3 fw-extrabold mb-4">Grow Your Business with Precision</h2>
+            <p class="lead opacity-75">Start your journey today and get insights into your operations like never before.</p>
+        </div>
+    </div>
+</div>

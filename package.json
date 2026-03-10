@@ -4,7 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:develop": "ng serve --configuration develop",
+    "start:qa": "ng serve --configuration qa",
+    "start:production": "ng serve --configuration production",
     "build": "ng build",
+    "build:develop": "ng build --configuration develop",
+    "build:qa": "ng build --configuration qa",
+    "build:production": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -23,6 +29,7 @@
   "private": true,
   "packageManager": "npm@11.6.2",
   "dependencies": {
+    "@angular/animations": "^21.1.0",
     "@angular/common": "^21.1.0",
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
