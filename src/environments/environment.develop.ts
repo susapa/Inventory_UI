@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
     name: 'develop',
-    apiUrl: 'https://dev-api.inventory.com/api'
+    apiUrl: 'http://localhost:8080/'
 };

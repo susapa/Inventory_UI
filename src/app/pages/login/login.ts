@@ -60,7 +60,11 @@ export class Login {
             detail: 'Login successful! Redirecting...'
           });
           setTimeout(() => {
-            this.router.navigate(['/admin/dashboard']);
+            if (res.role.toUpperCase() === 'ADMIN') {
+              this.router.navigate(['/admin/dashboard']);
+            } else {
+              this.router.navigate(['/user/dashboard']);
+            }
           }, 1000);
         },
         error: (err) => {

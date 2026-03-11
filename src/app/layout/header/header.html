@@ -24,17 +24,34 @@
             </span>
         </button>
 
-        <div
-            class="user-profile d-flex align-items-center gap-2 p-1 pe-2 rounded-3 cursor-pointer transition-all hover-bg-light">
-            <div class="avatar bg-primary text-white d-flex align-items-center justify-content-center rounded-3 fw-bold shadow-sm"
-                style="width: 40px; height: 40px; font-size: 0.85rem;">
-                AD
+        <div class="user-profile position-relative">
+            <div class="d-flex align-items-center gap-2 p-1 pe-2 rounded-3 cursor-pointer transition-all hover-bg-light"
+                (click)="toggleDropdown()" style="cursor: pointer;">
+                <div class="user-info d-none d-sm-flex flex-column">
+                    <span class="name fw-bold text-dark small">{{ user().role }}</span>
+                    <span class="role text-muted" style="font-size: 0.7rem;">Administrator</span>
+                </div>
+                <i class="pi pi-chevron-down text-muted ms-1 d-none d-sm-block transition-transform"
+                    [class.pi-chevron-up]="isDropdownOpen" style="font-size: 0.7rem;"></i>
             </div>
-            <div class="user-info d-none d-sm-flex flex-column">
-                <span class="name fw-bold text-dark small">Admin User</span>
-                <span class="role text-muted" style="font-size: 0.7rem;">Administrator</span>
+
+            @if (isDropdownOpen) {
+            <div class="dropdown-menu dropdown-menu-end shadow-sm border-0 position-absolute show"
+                style="top: 100%; right: 0; min-width: 180px; display: block; z-index: 1050; margin-top: 0.5rem;">
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2 small" href="javascript:void(0)">
+                    <i class="pi pi-user text-muted"></i> Profile
+                </a>
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2 small" href="javascript:void(0)">
+                    <i class="pi pi-cog text-muted"></i> Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <button
+                    class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger small bg-transparent border-0 w-100 text-start"
+                    (click)="logout()">
+                    <i class="pi pi-sign-out"></i> Logout
+                </button>
             </div>
-            <i class="pi pi-chevron-down text-muted ms-1 d-none d-sm-block" style="font-size: 0.7rem;"></i>
+            }
         </div>
     </div>
 </header>
