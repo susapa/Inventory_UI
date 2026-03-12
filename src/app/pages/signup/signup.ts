@@ -8,6 +8,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
     selector: 'app-signup',
@@ -21,7 +24,9 @@ import { AuthService } from '../../services/auth.service';
         InputTextModule,
         PasswordModule,
         FloatLabelModule,
-        CheckboxModule
+        CheckboxModule,
+        ToastModule,
+        RippleModule
     ],
     templateUrl: './signup.html',
     styleUrl: './signup.scss',
@@ -30,13 +35,13 @@ export class Signup {
     signupForm: FormGroup;
     loading = false;
 
-    constructor(
+    constructor(private messageService: MessageService,
         private fb: FormBuilder,
         private router: Router,
         private authService: AuthService
     ) {
         this.signupForm = this.fb.group({
-            username: ['', [Validators.required, Validators.minLength(3)]],
+            username: ['', [Validators.required, Validators.minLength(6)]],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             confirmPassword: ['', [Validators.required]],
@@ -54,11 +59,21 @@ export class Signup {
             this.loading = true;
             this.authService.signup(this.signupForm.value).subscribe({
                 next: (res) => {
-                    console.log('Signup successful', res);
-                    this.router.navigate(['/admin/dashboard']);
+                    this.messageService.add({
+                        severity: 'success',
+                        summary: 'Success',
+                        detail: 'Registration successful! Redirecting to login...'
+                    });
+                    setTimeout(() => {
+                        this.router.navigate(['/login']);
+                    }, 2000);
                 },
                 error: (err) => {
-                    console.error('Signup failed', err);
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Registration Failed',
+                        detail: err.error?.message || 'Something went wrong. Please try again.'
+                    });
                     this.loading = false;
                 },
                 complete: () => {
@@ -66,6 +81,11 @@ export class Signup {
                 }
             });
         } else {
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Sign Up Failed',
+                detail: 'Please fill out all required fields correctly.'
+            });
             Object.keys(this.signupForm.controls).forEach(key => {
                 const control = this.signupForm.get(key);
                 control?.markAsTouched();

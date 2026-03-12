@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   signup(userData: SignupData): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}register`, userData).pipe(
+    return this.http.post<AuthResponse>(`${this.apiUrl}auth/register`, userData).pipe(
       tap((res) => {
         if (res.token) {
           localStorage.setItem('auth_token', res.token);
